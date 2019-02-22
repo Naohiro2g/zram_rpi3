@@ -1,3 +1,22 @@
+このzram.shの中では、4コアそれぞれ用にzram0, zram1, zram2, zram3の4つが作られる。
+READMEの通りにオリジナルのスクリプトだと一つだけ。
+
+```
+htop
+swapon -s
+```
+
+zRAM onだと、実メモリ上に高速に圧縮してswapされる。
+実際にマイクロSDカードへのswapが減った感じがする。
+ファイルへのswapを遅らせることに成功している。
+
+ファイルへのswapが起きると、今まで同じく、動作が急に遅くなる。
+マイクロSDカードではなくUSB接続のSSDにswap領域を持てば、
+その部分が改善できる。
+
+--> ラズパイ高速化　https://github.com/Naohiro2g/Raspberry-Pi-Projects/wiki/高速化
+
+
 # rpi_zram
 script to enable zram for raspberry pi
 
