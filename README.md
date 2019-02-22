@@ -1,10 +1,19 @@
-このzram.shの中では、4コアそれぞれ用にzram0, zram1, zram2, zram3の4つが作られる。
-READMEの通りにオリジナルのスクリプトだと一つだけ。
+zram.shによって、4コアそれぞれ用にzram0, zram1, zram2, zram3の4つが作られる。
 
 ```
 htop
 swapon -s
+
+sudo wget -O /usr/bin/zram.sh https://raw.githubusercontent.com/Naohiro2g/zram_rpi3/master/zram.sh
+sudo chmod +x /usr/bin/zram.sh
 ```
+
+起動設定：
+`sudo nano /etc/rc.local`
+
+exit 0の前に挿入：
+`/usr/bin/zram.sh &`
+
 
 zRAM onだと、実メモリ上に高速に圧縮してswapされる。
 実際にマイクロSDカードへのswapが減った感じがする。
@@ -22,7 +31,7 @@ script to enable zram for raspberry pi
 
 Download the script and copy to /usr/bin/ folder
 ```
-sudo wget -O /usr/bin/zram.sh https://raw.githubusercontent.com/ric96/zram_rpi3/master/zram.sh
+sudo wget -O /usr/bin/zram.sh https://raw.githubusercontent.com/Naohiro2g/zram_rpi3/master/zram.sh
 ```
 
 make file executable
