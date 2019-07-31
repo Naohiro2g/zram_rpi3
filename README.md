@@ -1,9 +1,11 @@
 zram.shによって、4コアそれぞれ用にzram0, zram1, zram2, zram3の4つが作られる。
 
 ```
+# 現状確認
 htop
 swapon -s
 
+# zRam設定
 sudo wget -O /usr/bin/zram.sh https://raw.githubusercontent.com/Naohiro2g/zram_rpi3/master/zram.sh
 sudo chmod +x /usr/bin/zram.sh
 ```
@@ -14,6 +16,16 @@ sudo chmod +x /usr/bin/zram.sh
 exit 0の前に挿入：
 `/usr/bin/zram.sh &`
 
+```
+# 確認
+$ swapon -s
+Filename				Type		Size	Used	Priority
+/var/swap                              	file    	102396	0	-2
+/dev/zram0                             	partition	236060	0	5
+/dev/zram1                             	partition	236060	0	5
+/dev/zram2                             	partition	236060	0	5
+/dev/zram3                             	partition	236060	0	5
+```
 
 zRAM onだと、実メモリ上に高速に圧縮してswapされる。
 実際にマイクロSDカードへのswapが減った感じがする。
